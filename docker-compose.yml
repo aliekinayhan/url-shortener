@@ -1,6 +1,7 @@
 services:
   app:
     image: ${APP_IMAGE}
+    container_name: portfolio
     ports:
       - "8080:8080"
     environment:
@@ -13,9 +14,9 @@ services:
     depends_on:
       redis:
         condition: service_healthy
-
   redis:
     image: redis:7-alpine
+    container_name: redis
     ports:
       - "6379:6379"
     healthcheck:
